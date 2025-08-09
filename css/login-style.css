@@ -1,0 +1,146 @@
+/* --- ستايل صفحة تسجيل الدخول (بالتصميم الداكن) --- */
+:root {
+    --primary-color: #d4af37;
+    /* اللون الذهبي الحالي */
+    --dark-bg: #112A2A;
+    --light-text: #f0f0f0;
+    /* أضف أي لون آخر تستخدمه بكثرة */
+}
+
+body {
+    font-family: 'Tajawal', sans-serif;
+    margin: 0;
+    background-color: var(--dark-bg);
+    color: #f0f0f0;
+    direction: rtl;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 0 20px;
+    width: 100%;
+}
+
+.page-padding {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+header {
+    background: #1d1d1d;
+    color: #fff;
+    padding: 1rem 0;
+    border-bottom: 3px solid #d4af37;
+}
+
+header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1100px;
+    margin: auto;
+    padding: 0 20px;
+}
+
+.logo-link img.logo {
+    max-height: 50px;
+}
+
+header h2 {
+    font-family: 'Cairo', sans-serif;
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+header a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 700;
+    padding: 5px 10px;
+}
+
+.modal-content {
+    background: #fff;
+    color: #333;
+    margin: 1rem auto;
+    padding: 30px;
+    border-radius: 8px;
+    max-width: 500px;
+    width: 90%;
+    /* تعديل مهم */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.modal-content h3 {
+    font-family: 'Cairo', sans-serif;
+    text-align: center;
+    font-size: 1.8rem;
+    margin-top: 0;
+    color: var(--primary-color);
+}
+
+form label {
+    display: block;
+    margin-top: 20px;
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+form input {
+    width: 100%;
+    padding: 12px;
+    margin-top: 8px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.btn-primary {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background: #d4af37;
+    color: #111;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Cairo', sans-serif;
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-top: 25px;
+    transition: transform 0.2s;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+}
+
+.notification.error {
+    color: #fff;
+    background-color: #c62828;
+    padding: 12px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    text-align: center;
+    font-weight: 700;
+}
+
+footer {
+    text-align: center;
+    padding: 2rem 0;
+    background: #111;
+    color: #888;
+}

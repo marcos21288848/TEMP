@@ -1,0 +1,95 @@
+/* Styling for the Services Display Page */
+.services-display-section {
+    padding: 100px 0;
+    background-color: #fcfcfc;
+    overflow-x: hidden;
+}
+
+.services-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 80px;
+    /* Increased gap for better spacing */
+}
+
+.service-item {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+/* Alternating layout for service items */
+.service-item:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+.service-item .service-image {
+    flex: 1;
+}
+
+.service-item .service-image img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.service-item .service-info {
+    flex: 1.2;
+    /* Give more space to text */
+}
+
+/* Styling for the progress bar */
+.progress-container {
+    margin-top: 25px;
+}
+
+.progress-container small {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    color: #555;
+    font-weight: 700;
+}
+
+.progress-bar-wrapper {
+    background-color: #e0e0e0;
+    border-radius: 20px;
+    height: 10px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    background-color: #d4af37;
+    height: 100%;
+    width: 0;
+    /* Initial width for animation */
+    border-radius: 20px;
+    transition: width 1.5s ease-in-out;
+    /* Animation for the bar filling up */
+}
+
+/* Trigger animation when section is visible */
+.service-item.anim-show .progress-bar {
+    width: var(--progress-width, 0);
+    /* Custom property to be set in HTML */
+}
+
+/* Re-use the about-box style for consistency */
+.service-info.about-box {
+    margin-bottom: 0;
+}
+
+.service-item:nth-child(even) .service-info.about-box {
+    border-right: none;
+    border-left: 5px solid #d4af37;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+
+    .service-item,
+    .service-item:nth-child(even) {
+        flex-direction: column;
+        gap: 30px;
+    }
+}
