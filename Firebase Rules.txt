@@ -1,0 +1,41 @@
+{
+  "rules": {
+    // 1. الإعدادات والخدمات: الجميع يقرأ، الأدمن فقط يكتب
+    "settings": {
+      ".read": true,
+      ".write": "auth.uid != null"
+    },
+    "services": {
+      ".read": true,
+      ".write": "auth.uid != null"
+    },
+
+    // 2. الحجوزات الخاصة (البيانات السرية)
+    "bookings": {
+      ".read": "auth.uid != null",
+      "$bookingId": {
+        ".write": "!data.exists() || auth.uid != null",
+        ".validate": "newData.hasChildren(['fullName', 'phone', 'date', 'status', 'services', 'totalPrice', 'createdAt', 'bookingCode'])"
+      }
+    },
+
+    // 3. الحجوزات العامة (للتأكد من الإتاحة) - هذا هو القسم الجديد
+    "publicBookings": {
+      ".read": true,
+      "$bookingId": {
+        // السماح للعميل بالإنشاء، وللأدمن بالتعديل (مثل تغيير الحالة)
+        ".write": "!data.exists() || auth.uid != null",
+        // يجب أن تحتوي البيانات العامة على هذه الحقول فقط
+        ".validate": "newData.hasChildren(['date', 'status'])"
+      }
+    },
+
+    // 4. عداد الأيام (لإنشاء كود الحجز) - يبقى كما هو
+    "dayCounters": {
+      ".read": true,
+      "$date": {
+        ".write": "newData.isNumber() && (!data.exists() && newData.val() === 1 || newData.val() === data.val() + 1)"
+      }
+    }
+  }
+}
