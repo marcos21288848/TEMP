@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حجوزاتي</title>
+    <!-- استدعاء ملف التصميم الجديد -->
+    <link rel="stylesheet" href="css/my-bookings-style.css?v=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700&family=Tajawal:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="images/icons/apple-touch-icon.png">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+    <header>
+        <nav class="container">
+            <a href="index.html" class="logo-link"><img id="header-logo" src="logo.png" alt="Logo" class="logo"></a>
+            <ul>
+                <li><a href="index.html">الرئيسية</a></li>
+                <li><a href="services.html">الخدمات والحجز</a></li>
+                <!-- رابط للصفحة الحالية -->
+                <li><a href="my-bookings.html">حجوزاتي</a></li>
+            </ul>
+            <!-- مكان عرض حالة المستخدم -->
+            <div id="user-status"></div>
+        </nav>
+    </header>
+
+    <main class="container page-padding">
+        <!-- قسم تسجيل الدخول (يظهر للمستخدم غير المسجل) -->
+        <div id="client-login-section" style="display: none;" class="login-prompt">
+            <h2>متابعة حجوزاتك</h2>
+            <p>الرجاء تسجيل الدخول لعرض حجوزاتك القادمة والسابقة، أو لإلغاء موعد.</p>
+            <button id="google-login-btn" class="btn btn-primary">
+                <img src="https://www.google.com/favicon.ico" alt="Google icon" width="20" height="20">
+                تسجيل الدخول باستخدام جوجل
+            </button>
+        </div>
+
+        <!-- قسم عرض الحجوزات (يظهر للمستخدم المسجل) -->
+        <div id="client-bookings-section" style="display: none;">
+            <h2 id="welcome-message" class="text-center"></h2>
+
+            <section class="bookings-category">
+                <h3>الحجوزات القادمة</h3>
+                <div id="upcoming-client-bookings">
+                    <p class="note">جاري تحميل الحجوزات...</p>
+                </div>
+            </section>
+
+            <section class="bookings-category">
+                <h3>الحجوزات السابقة</h3>
+                <div id="past-client-bookings">
+                    <p class="note">لا توجد حجوزات سابقة.</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <p></p>
+    </footer>
+
+    <!-- ملفات الجافاسكريبت -->
+    <script src="js/config.js"></script>
+    <script src="js/themer.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database-compat.js"></script>
+    <script src="js/utils.js"></script>
+    <!-- استدعاء ملف الجافاسكريبت الخاص بالصفحة -->
+    <script src="js/my-bookings.js?v=1.1"></script>
+</body>
+
+</html>
