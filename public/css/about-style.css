@@ -1,0 +1,195 @@
+/* General Section Styles for About Page */
+.about-page-section,
+.team-section,
+.features {
+    padding: 100px 0;
+    overflow-x: hidden;
+    /* منع ظهور شريط التمرير الأفقي أثناء الأنيميشن */
+}
+
+.team-section {
+    background-color: #fcfcfc;
+}
+
+.features {
+    background-color: #fff;
+}
+
+.about-page-section .section-title,
+.team-section .section-title,
+.features .section-title {
+    color: #333;
+}
+
+
+/* About Us Section */
+.about-container {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+}
+
+.about-image {
+    flex: 1;
+}
+
+.about-image img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.about-content {
+    flex: 1;
+}
+
+.about-box {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 8px;
+    border-right: 5px solid #d4af37;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.about-box h3 {
+    font-family: 'Cairo', sans-serif;
+    margin-top: 0;
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+}
+
+.about-box p {
+    line-height: 1.8;
+    font-size: 1.1rem;
+    color: #555;
+}
+
+
+/* Team Section Styling */
+.team-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 60px;
+}
+
+.team-member {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    text-align: center;
+}
+
+.team-member-image img {
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 7px solid #fff;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.team-member-info {
+    width: 100%;
+}
+
+.team-member-info.about-box {
+    margin-bottom: 0;
+}
+
+
+/* --- نظام الأنيميشن --- */
+.anim-hidden {
+    opacity: 0;
+    transition: opacity 1.5s ease-out, transform 1.5s ease-out;
+}
+
+.anim-hidden.anim-from-left {
+    transform: translateX(-150px);
+}
+
+.anim-hidden.anim-from-right {
+    transform: translateX(150px);
+}
+
+.anim-hidden.anim-from-bottom {
+    transform: translateY(50px);
+}
+
+.anim-hidden.anim-show {
+    opacity: 1;
+    transform: translate(0, 0);
+}
+
+
+/* Responsive styles */
+@media (min-width: 992px) {
+    .team-member {
+        flex-direction: row;
+        text-align: right;
+        gap: 50px;
+    }
+
+    .team-member-image {
+        flex-shrink: 0;
+    }
+
+    .team-member:nth-child(even) {
+        flex-direction: row-reverse;
+    }
+
+    .team-member:nth-child(even) .team-member-info {
+        text-align: left;
+    }
+
+    .team-member:nth-child(even) .about-box {
+        border-right: none;
+        border-left: 5px solid #d4af37;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-container {
+        flex-direction: column;
+        gap: 40px;
+    }
+}
+
+/* --- (إضافة) قسم المميزات --- */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.feature-card {
+    background-color: #fff;
+    padding: 40px 30px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    border-bottom: 5px solid transparent;
+    transition: transform .3s, border-color .3s;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    border-color: #d4af37;
+}
+
+.feature-icon {
+    width: 80px;
+    margin-bottom: 20px;
+}
+
+.feature-card h3 {
+    font-family: 'Cairo', sans-serif;
+    font-size: 1.6rem;
+    margin-bottom: 15px;
+}
+
+.feature-card p {
+    line-height: 1.7;
+    font-size: 1rem;
+    color: #555;
+}
